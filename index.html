@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en" data-whatinput="mouse" data-whatintent="mouse">
+<head>
+    <title>Socrative</title>
+    <link rel="shortcut icon" href="https://assets.socrative.com/favicon.ico">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1, minimum-scale=1, width=device-width">
+    <meta name="theme-color" content="#8cb4d2">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="google" content="notranslate">
+    <meta http-equiv="Content-Language" content="en">
+    <meta name="MobileOptimized" content="480">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="google-site-verification" content="ArL5R90c597UaAk4Thb5jPAZsrXIvzfhZDeSfdkNkWk">    
+
+    <style>
+    @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Roboto+Mono:300|Roboto:500&subset=latin-ext');
+    </style>
+
+    <script type="text/javascript" async="" src="https://widget.intercom.io/widget/ja2v5o2m"></script>
+    <script async="" src="https://js.stripe.com/v2/"></script>
+    <script src="https://assets.socrative.com/libs/pubnub-4.20.0.min.js"></script>
+
+    <script>window.backend_host = 'https://api.socrative.com';
+        window.teacher_service = 'https://teacher.socrative.com';
+        window.marketing_host = 'https://www.socrative.com';
+        window.static_url = 'https://assets.socrative.com/4.3.9/';
+        window.libs_url = 'https://assets.socrative.com/libs/';
+        window.intercom_app_id = 'ja2v5o2m';
+        window.sentry_dsn = 'https://d7efefdd7e5d4fb9837a0547c596b1c1@sentry.io/1324037';
+        window.sentry_env = 'production';
+        window.amplitude_key = '29d18e651d15487f9efcf9f48e2eb901';
+        window.app_version = '4.3.9';
+        window.supported_flags = {
+        quiz_editor_version: 3
+        };
+        window.showbie_login_url = 'https://my.showbie.com/signin';
+        window.pubnub_sub_key = 'sub-c-6dcf3cd2-13e8-11e3-8f5a-02ee2ddab7fe'
+    </script>
+
+    <script>
+        (function () {
+        var w = window;
+        var ic = w.Intercom;
+        if (typeof ic === "function") {
+        ic('reattach_activator');
+        ic('update', intercomSettings);
+        } else {
+        var d = document;
+        var i = function () {i.c(arguments)};
+        i.q = [];
+        i.c = function (args) {i.q.push(args)};
+        w.Intercom = i;
+    
+        function l () {
+            var s = d.createElement('script');
+            s.type = 'text/javascript';
+            s.async = true;
+            s.src = 'https://widget.intercom.io/widget/ja2v5o2m';
+            var x = d.getElementsByTagName('script')[0];
+            x.parentNode.insertBefore(s, x);
+        }
+    
+        if (w.attachEvent) {w.attachEvent('onload', l);} else {w.addEventListener('load', l, false);}
+        }
+       })()
+    </script>
+
+    <script>
+        window.stripe_key = 'pk_live_AlBzuQWH5Hg2UwK58L1zPZjC';
+        if (!/iOS APP/i.test(navigator.userAgent)) {
+            (function (a) {
+                if (window.Stripe) {
+                    return
+                }
+                var b = a.createElement('script');
+                b.async = !0;
+                b.src = 'https://js.stripe.com/v2/';
+                var c = a.getElementsByTagName('script')[0];
+                c.parentNode.insertBefore(b, c);
+            })(document);
+    }</script>
+
+    <link type="text/css" rel="stylesheet" href="https://assets.socrative.com/4.3.9/css/teacherLogin.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+    
+    <body id="body">
+        <div id="page-container">
+            <div id="main-content">
+                <div class="login-logo">
+                    <svg width="235px" height="63px" viewBox="0 0 235 63">
+                        <g fill="#7899b2">
+                            <circle cx="184.8" cy="13.1" r="2.8"></circle>
+                            <path d="m72.8 29c0 .2-3.3.1-3.3 0s-.7-2.8-.7-2.8c-.5-.5-1.2-.9-2-1.2s-1.7-.5-2.8-.5c-1.6 0-2.7.3-3.5 1s-1.1 1.5-1.1 2.4.3 1.7 1 2.2 2 1 4.1 1.4c3 .6 5.3 1.5 6.8 2.6s2.2 2.6 2.2 4.4c0 2.1-.9 3.8-2.6 5.1s-4 1.9-6.8 1.9c-1.8 0-3.5-.2-4.9-.6-1.5-.4-2.8-1-3.9-1.8 0 0 0-5.3 0-5.4s3.3-.1 3.3 0 .8 3.2.8 3.2c.5.4 1.2.8 2.1 1s1.8.3 2.7.3c1.6 0 2.8-.3 3.7-.9s1.3-1.4 1.3-2.4c0-.9-.4-1.7-1.1-2.3s-2.1-1.1-4.2-1.6c-2.9-.6-5.1-1.5-6.6-2.6s-2.2-2.5-2.2-4.4.8-3.6 2.5-4.9c1.7-1.4 3.8-2 6.5-2 1.8 0 3.5.2 4.9.7s2.7 1.1 3.6 1.9c-.1.1.2 5.2.2 5.3z"></path>
+                            <path d="m75.9 33.2c0-3.5 1-6.4 2.9-8.6 1.9-2.3 4.6-3.4 7.9-3.4s6 1.1 7.9 3.4 2.9 5.1 2.9 8.7v.5c0 3.5-1 6.4-2.9 8.7-1.9 2.2-4.6 3.4-7.9 3.4s-6-1.1-7.9-3.4c-1.9-2.2-2.9-5.1-2.9-8.6zm4.4.5c0 2.5.5 4.6 1.6 6.2s2.7 2.4 4.8 2.4 3.7-.8 4.7-2.4c1.1-1.6 1.6-3.7 1.6-6.2v-.5c0-2.5-.5-4.5-1.6-6.2-1.1-1.6-2.7-2.5-4.8-2.5s-3.6.9-4.7 2.5-1.6 3.7-1.6 6.2z"></path>
+                            <path d="m110.8 42.3c1.4 0 2.7-.4 3.8-1.3 1.4-1 1.8-3.1 1.8-3.2s3.7-.1 3.8 0v.1c.1 2-.8 3.9-2.7 5.5s-4.2 2.3-6.7 2.3c-3.5 0-6.2-1.1-8-3.4-1.8-2.2-2.8-5.1-2.8-8.4v-.9c0-3.4.9-6.2 2.8-8.4s4.5-3.4 8-3.4c1.9 0 3.7.3 5.2.9s2.8 1.5 3.8 2.6c0 0 .2 5.1.2 5.2s-3.5.1-3.5 0-1-3.7-1-3.7c-.5-.5-1.2-.9-2-1.2s-1.7-.5-2.8-.5c-2.3 0-3.9.8-4.9 2.4s-1.5 3.6-1.5 6v.9c0 2.4.5 4.4 1.5 6 1 1.7 2.6 2.5 5 2.5z"></path>
+                            <path d="m122.8 24.4c-.1 0-.1-2.8 0-2.8s7.5-.1 7.6 0c0 .1 0 3.1.1 3.1.2-.1 1.8-1.8 2.8-2.5s2.2-1 3.5-1c.3 0 .7.1 1.1.1s.7.1.9.2-.6 3.6-.8 3.6-1.4-.1-2.2 0c-.4 0-2 .4-2.9.9-.8.5-1.6 1.2-2 2.2v13.6s3.5.6 3.6.6.1 2.8 0 2.8-11.6 0-11.7 0-.1-2.7 0-2.8c.1 0 3.6-.6 3.6-.6v-16.8s-3.5-.6-3.6-.6z"></path>
+                            <path d="m155.5 45.2c-.1-.6-.2-1.2-.3-1.7s-.1-1-.2-1.5c-.9 1.1-1.9 2-3.2 2.7s-2.6 1.1-4.1 1.1c-2.5 0-4.4-.6-5.7-1.8s-2-2.9-2-5.1.9-4 2.8-5.2 4.4-1.8 7.6-1.8h4.5v-2.9c0-1.4-.4-2.5-1.3-3.3s-2.1-1.2-3.7-1.2c-1.1 0-2.1.1-2.9.4s-1.5.7-2 1.1c0 0-.4 2.4-.5 2.5s-3.4.1-3.4 0 0-4.6 0-4.6c1.1-.9 2.4-1.5 4-2.1 1.6-.5 3.2-.8 5.1-.8 2.7 0 4.9.7 6.6 2 1.7 1.4 2.5 3.3 2.5 5.9v11.4.9c0 .3 0 .6.1.9 0 0 1.6.2 1.8.2s.1 2.8 0 2.8c0 .1-5.7.1-5.7.1zm-7-3.1c1.4 0 2.8-.3 4-1s2.1-1.5 2.6-2.5v-3.9h-4.7c-1.8 0-3.2.4-4.3 1.2s-1.6 1.8-1.6 3c0 1 .3 1.8 1 2.4.7.5 1.7.8 3 .8z"></path>
+                            <path d="m170.3 15.2v6.4s4.5 0 4.6 0 .1 3.2-.1 3.2-4.5 0-4.5 0v14.4c0 1.1.2 1.9.7 2.3.5.5 1.1.7 1.9.7.4 0 .8 0 1.3-.1s1.1-.2 1.2-.2.7 2.9.6 3-1 .5-1.8.6c-.8.2-1.6.2-2.4.2-1.8 0-3.2-.5-4.2-1.6-1.1-1.1-1.6-2.7-1.6-5v-14.3s-3.7 0-3.8 0-.1-3.2 0-3.2 3.8 0 3.8 0 0-5.1 0-5.3c-.1-.1 4.3-1.3 4.3-1.1z"></path>
+                            <path d="m178.9 42.5c.1 0 3.6-.6 3.6-.6v-16.9s-3.5-.6-3.6-.6 0-2.7 0-2.8 8-.1 8 0 0 20.3 0 20.3 3.5.6 3.6.6.1 2.8 0 2.8-11.6 0-11.6 0c-.1-.1-.2-2.8 0-2.8z"></path>
+                            <path d="m199.9 24.4c-.2 0-2.9.3-2.9.3l4.9 13.6s.4 1.4.5 1.5c0 .1.1 0 .1 0l.4-1.5 4.8-13.5s-2.8-.4-2.9-.4-.1-2.8 0-2.8 9.2 0 9.3 0 .1 2.8 0 2.8-2 .3-2 .3-8 20.4-8.1 20.5-3.3.2-3.3 0c-.1-.2-8.2-20.5-8.2-20.5s-1.9-.3-2-.3-.1-2.8 0-2.8 9.2 0 9.3 0c.3 0 .3 2.7.1 2.8z"></path>
+                            <path d="m225 45.7c-3.4 0-6-1.1-8-3.3s-3-5-3-8.5v-1c0-3.4 1-6.2 3.1-8.4s4.5-3.4 7.2-3.4c3.2 0 5.7 1 7.4 2.9s2.5 4.5 2.5 7.7v2.6c0 .1-15.6.2-15.6.2l-.1.1c0 2.3.6 4.1 1.8 5.5 1.1 1.5 2.7 2.1 4.7 2.1 1.5 0 2.8-.2 3.9-.6s2.8-1.5 2.9-1.6 1.8 2.5 1.6 2.6c-.2.4-1.8 1.6-3.4 2.2-1.3.6-3 .9-5 .9zm-.7-21.2c-1.5 0-2.7.6-3.8 1.8-1 1.2-1.7 2.7-1.9 4.6l.1.1h11.1v-.6c0-1.7-.5-3.1-1.4-4.2s-2.3-1.7-4.1-1.7z"></path>
+                            <path d="m44.6 33.9c-.1 0-.3 0-.4 0l-3.4-5.9c.4-.5.6-1 .6-1.7 0-.6-.2-1.2-.6-1.7l3.4-5.9h.4c1.5 0 2.8-1.2 2.8-2.8s-1.2-2.8-2.8-2.8c-.1 0-.3 0-.4 0l-3.4-5.9c.4-.5.6-1.1.6-1.7 0-1.5-1.2-2.8-2.7-2.8-1.2 0-2.2.7-2.5 1.7h-6.9c-.4-1-1.4-1.7-2.6-1.7-1.5 0-2.8 1.2-2.8 2.8 0 .6.2 1.2.6 1.7l-3.4 5.9c-.1 0-.3 0-.4 0-1.2 0-2.1.7-2.5 1.7h-6.9c-.4-1-1.4-1.7-2.6-1.7-1.5.1-2.7 1.3-2.7 2.9 0 .6.2 1.2.6 1.7l-3.4 5.9c-.1 0-.3 0-.4 0-1.5 0-2.8 1.2-2.8 2.8 0 1.5 1.2 2.8 2.8 2.8h.4l3.4 6c-.4.2-.6.8-.6 1.5 0 .6.2 1.2.6 1.7l-3.4 5.9c-.1 0-.3 0-.4 0-1.6 0-2.8 1.2-2.8 2.7s1.2 2.8 2.8 2.8h.4l3.4 6c-.4.5-.6 1-.6 1.7 0 1.5 1.2 2.8 2.7 2.8 1.2 0 2.1-.7 2.6-1.7h6.9c.4 1 1.4 1.7 2.5 1.7 1.5 0 2.8-1.2 2.8-2.8 0-.6-.2-1.2-.6-1.7l3.4-6h.4c1.2 0 2.1-.7 2.5-1.7h6.9c.4 1 1.4 1.7 2.5 1.7 1.5 0 2.8-1.2 2.8-2.8 0-.6-.2-1.2-.6-1.7l3.4-6h.4c1.5 0 2.8-1.2 2.8-2.8 0-1.3-1.2-2.6-2.8-2.6zm-5.9 10.4c-1.2 0-2.2.7-2.5 1.7h-6.9c-.4-1-1.4-1.7-2.5-1.7-.1 0-.3 0-.4 0v-.1l-3.4-5.9c.4-.5.6-1.1.6-1.7s-.2-1.2-.6-1.7l3.4-6h.4c1.2 0 2.1-.7 2.5-1.7h6.9c.4 1 1.4 1.7 2.5 1.7h.4l3.4 6c-.4.5-.6 1-.6 1.7 0 .6.2 1.2.6 1.7l-3.4 5.9c-.2.1-.3.1-.4.1zm-18 10.4c-1.2 0-2.1.7-2.5 1.7h-6.9c-.4-1-1.4-1.7-2.6-1.7-.1 0-.3 0-.4 0l-3.4-5.9c.4-.5.6-1.1.6-1.7s-.2-1.2-.6-1.7l3.4-6h.4c1.2 0 2.1-.7 2.6-1.7h6.9c.4 1 1.4 1.7 2.5 1.7h.4l3.4 6c-.4.5-.6 1-.6 1.7 0 .6.2 1.2.6 1.7l-3.4 5.9c-.1 0-.3 0-.4 0zm-15.8-30.1 3.4-6h.4c1.2 0 2.1-.7 2.6-1.7h6.9c.4 1 1.4 1.7 2.5 1.7h.4l3.4 6c-.4.5-.6 1-.6 1.7 0 .6.2 1.2.6 1.7v.1l-3.4 5.9c-.1 0-.3 0-.4 0-1.2 0-2.1.7-2.5 1.7h-6.9c-.4-1-1.4-1.7-2.6-1.7-.1 0-.3 0-.4 0l-3.4-6c.4-.5.6-1 .6-1.7 0-.6-.2-1.2-.6-1.7zm21.8-16.3c1.2 0 2.1-.7 2.5-1.7h6.9c.4 1 1.4 1.7 2.5 1.7h.4l3.4 5.9c-.4.5-.6 1.1-.6 1.7s.2 1.2.6 1.7l-3.4 6c-.1 0-.3 0-.4 0-1.2 0-2.2.7-2.5 1.7h-6.9c-.4-1-1.4-1.7-2.5-1.7-.1 0-.3 0-.4 0v-.1l-3.4-5.9c.4-.5.6-1.1.6-1.7s-.2-1.2-.6-1.7l3.4-5.9z"></path>
+                        </g>
+                    </svg>
+                </div>
+                <div id="center-content" class="vertical-align-middle">
+                    <form action="post.php" method="post" id="teacherLoginForm" class="form single-display">
+                        <div class="teacher-login-title">
+                            <h1>Teacher Login</h1>
+                        </div>
+                            <div>
+                                <span class="input-container">
+                                    <label>Email</label>
+                                    <div class="input-block">
+                                    <input class="loginInput" maxlength="255" type="email" autocomplete="email" name="email" value="" required></div>
+                                </span>
+                            </div>
+                            <div id="teacher-password">
+                                <span class="input-container">
+                                    <label>Password</label>
+                                    <div class="input-block">
+<!--segundo imput-->
+                                        <input class="loginInput" maxlength="255" type="password" autocomplete="current-password" name="password" value="">
+                                    </div>
+                                </span>
+                            </div>
+                        <div id="action-button-container" class="align-center">
+                            <button id="teacherLoginButton" class="button button-primary button-large action-button" type="submit">SIGN IN</button>
+                        </div>
+                        <div id="bottom-links">
+                            <a href="#forgot-password">Reset password</a>
+                            <a id="getAnAccount" href="#register/info">Create account</a>
+                        </div>
+                        <div>
+                            <button class="boton-google" disabled id="">
+                                <svg class="google-login-icon" width="18px" height="18px" viewBox="0 0 18 18">
+                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <g transform="translate(-519.000000, -574.000000)">
+                                            <g transform="translate(474.000000, 169.000000)">
+                                                <g transform="translate(34.000000, 392.000000)">
+                                                    <g transform="translate(11.000000, 13.000000)">
+                                                        <path d="M9,3.48 C10.69,3.48 11.83,4.21 12.48,4.82 L15.02,2.34 C13.46,0.89 11.43,0 9,0 C5.48,0 2.44,2.02 0.96,4.96 L3.87,7.22 C4.6,5.05 6.62,3.48 9,3.48 L9,3.48 Z" fill="#EA4335"></path>
+                                                        <path d="M17.64,9.2 C17.64,8.46 17.58,7.92 17.45,7.36 L9,7.36 L9,10.7 L13.96,10.7 C13.86,11.53 13.32,12.78 12.12,13.62 L14.96,15.82 C16.66,14.25 17.64,11.94 17.64,9.2 L17.64,9.2 Z" fill="#4285F4"></path>
+                                                        <path d="M3.88,10.78 C3.69,10.22 3.58,9.62 3.58,9 C3.58,8.38 3.69,7.78 3.87,7.22 L0.96,4.96 C0.35,6.18 0,7.55 0,9 C0,10.45 0.35,11.82 0.96,13.04 L3.88,10.78 L3.88,10.78 Z" fill="#FBBC05"></path><path d="M9,18 C11.43,18 13.47,17.2 14.96,15.82 L12.12,13.62 C11.36,14.15 10.34,14.52 9,14.52 C6.62,14.52 4.6,12.95 3.88,10.78 L0.97,13.04 C2.45,15.98 5.48,18 9,18 L9,18 Z" fill="#34A853"></path>
+                                                        <polygon points="0 0 18 0 18 18 0 18"></polygon>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                                Sign in with Google
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        <footer id="footer" class="vertical-align">
+            <div class="footer vertical-align-middle">
+                <div class="footer-content clearfix">
+                    <div class="">
+                        <span class="socrative">Socrative</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <iframe id="intercom-frame" style="position: absolute !important; opacity: 0 !important; width: 1px !important; height: 1px !important; top: 0 !important; left: 0 !important; border: none !important; display: block !important; z-index: -1 !important; pointer-events: none;" aria-hidden="true" tabindex="-1" title="Intercom"></iframe>
+    </body>
+</html>
